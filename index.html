@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AMKO Engineering Services - Expert Engineering Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(10, 25, 47, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 1rem 0;
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(10, 25, 47, 0.98);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    nav .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: #64b5f6;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #64b5f6;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(10, 25, 47, 0.8) 0%, rgba(30, 58, 138, 0.6) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-text h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      animation: slideInLeft 1s ease-out;
+    }
+
+    .hero-text .subtitle {
+      font-size: 1.3rem;
+      color: #e2e8f0;
+      margin-bottom: 2rem;
+      animation: slideInLeft 1s ease-out 0.2s both;
+    }
+
+    .hero-text .description {
+      font-size: 1.1rem;
+      color: #cbd5e0;
+      margin-bottom: 2.5rem;
+      animation: slideInLeft 1s ease-out 0.4s both;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      animation: slideInLeft 1s ease-out 0.6s both;
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .btn-primary:hover::before {
+      left: 100%;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      border: 2px solid #fff;
+    }
+
+    .btn-secondary:hover {
+      background: #fff;
+      color: #0a192f;
+    }
+
+    .hero-image {
+      position: relative;
+      animation: slideInRight 1s ease-out 0.8s both;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .floating-card {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .card-1 {
+      top: -20px;
+      left: -20px;
+      animation-delay: 0s;
+    }
+
+    .card-2 {
+      bottom: -20px;
+      right: -20px;
+      animation-delay: 2s;
+    }
+
+    .card-stat {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-label {
+      font-size: 0.9rem;
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    /* Services Section */
+    .services {
+      padding: 6rem 2rem;
+      background: #fff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0a192f;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #64748b;
+      margin-bottom: 4rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    .service-card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #0a192f;
+      margin-bottom: 1rem;
+    }
+
+    .service-card p {
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    /* About Section */
+    .about {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-text {
+      padding: 2rem;
+    }
+
+    .about-text h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0a192f;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text p {
+      color: #64748b;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 1.5rem;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Mission & Values */
+    .mission {
+      padding: 6rem 2rem;
+      background: #0a192f;
+      color: #fff;
+    }
+
+    .mission-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+    }
+
+    .mission-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 2.5rem;
+      border-radius: 20px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .mission-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .mission-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 2rem;
+    }
+
+    .mission-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #64b5f6;
+    }
+
+    .mission-card p {
+      color: #cbd5e0;
+      line-height: 1.6;
+    }
+
+    /* Chairman Message */
+    .chairman {
+      padding: 6rem 2rem;
+      background: #fff;
+    }
+
+    .chairman-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .chairman-quote {
+      font-size: 1.3rem;
+      color: #4a5568;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      font-style: italic;
+      position: relative;
+    }
+
+    .chairman-quote::before {
+      content: '"';
+      font-size: 4rem;
+      color: #667eea;
+      position: absolute;
+      top: -20px;
+      left: -30px;
+    }
+
+    .chairman-info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .chairman-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .chairman-details h4 {
+      font-size: 1.5rem;
+      color: #0a192f;
+      margin-bottom: 0.5rem;
+    }
+
+    .chairman-details p {
+      color: #64748b;
+      font-size: 1.1rem;
+    }
+
+    /* Clients Section */
+    .clients {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    }
+
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .client-card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .client-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .client-logo {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.5rem;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .client-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #0a192f;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 6rem 2rem;
+      background: #0a192f;
+      color: #fff;
+    }
+
+    .contact-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-info h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #64b5f6;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .contact-details h4 {
+      margin-bottom: 0.5rem;
+      color: #64b5f6;
+    }
+
+    .contact-details p {
+      color: #cbd5e0;
+    }
+
+    .contact-form {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #64b5f6;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #a0aec0;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #64b5f6;
+    }
+
+    /* Footer */
+    footer {
+      background: #0a192f;
+      color: #fff;
+      padding: 3rem 2rem 1rem;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 1rem;
+      color: #64b5f6;
+    }
+
+    .footer-section p, .footer-section a {
+      color: #cbd5e0;
+      text-decoration: none;
+    }
+
+    .footer-section a:hover {
+      color: #64b5f6;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #2d3748;
+      padding-top: 1rem;
+      color: #a0aec0;
+    }
+
+    /* Animations */
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .hero-text h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .floating-card {
+        position: static;
+        margin: 1rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="container">
+      <a href="#" class="logo">AMKO</a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#mission">Mission</a></li>
+        <li><a href="#chairman">Chairman</a></li>
+        <li><a href="#clients">Clients</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>AMKO Engineering Services</h1>
+        <p class="subtitle">Expert Engineering & Maintenance Solutions You Can Trust</p>
+        <p class="description">
+          AMKO is a trusted Electro-Mechanical Engineering company offering safe, efficient, and innovative services for various industrial sectors. Since 2013, we've supported clients with customized maintenance, construction, and project management solutions.
+        </p>
+        <div class="hero-buttons">
+          <a href="#services" class="btn btn-primary">Explore Our Services</a>
+          <a href="#projects" class="btn btn-secondary">View Projects</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1601902151074-3d2a2fc47763?auto=format&fit=crop&w=1050&q=80" alt="Engineering Work">
+        <div class="floating-card card-1">
+          <div class="card-stat">10+</div>
+          <div class="card-label">Years Experience</div>
+        </div>
+        <div class="floating-card card-2">
+          <div class="card-stat">500+</div>
+          <div class="card-label">Projects Completed</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>About AMKO</h2>
+          <p>AMKO is a specialized Electro-Mechanical Engineering company delivering end-to-end solutions for industrial maintenance and construction projects.</p>
+          <p>With a strong presence in industries such as steel, cement, and food & beverage, we offer tailored support for shutdowns, regular servicing, and complex installations.</p>
+          <p>At the heart of our operations is a commitment to international standards, environmental responsibility, and workplace safety.</p>
+          
+          <div class="about-stats">
+            <div class="stat-item">
+              <div class="stat-number">2013</div>
+              <div class="stat-label">Founded</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">500+</div>
+              <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">50+</div>
+              <div class="stat-label">Team Members</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Client Satisfaction</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80" alt="AMKO Team">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mission" id="mission">
+    <div class="container">
+      <h2 class="section-title" style="color: #fff; margin-bottom: 3rem;">Our Mission & Values</h2>
+      
+      <div class="mission-content">
+        <div class="mission-card">
+          <div class="mission-icon">🎯</div>
+          <h3>Our Mission</h3>
+          <p>We operate with integrity and purpose, aiming to set benchmarks in both performance and ethics. By nurturing a diverse and inclusive workforce, we continue to build trust-based relationships.</p>
+        </div>
+        
+        <div class="mission-card">
+          <div class="mission-icon">🚀</div>
+          <h3>Our Strategy</h3>
+          <p>AMKO's strategy is built on innovation, sustainability, and leadership. We deliver excellence in every aspect of our work, continuously improving through agile project execution.</p>
+        </div>
+        
+        <div class="mission-card">
+          <div class="mission-icon">💡</div>
+          <h3>Our Values</h3>
+          <p>Our aim is not just to meet client expectations, but to exceed them — creating long-term value for people, planet, and profit through responsible engineering practices.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chairman" id="chairman">
+    <div class="container">
+      <h2 class="section-title">Chairman's Message</h2>
+      
+      <div class="chairman-content">
+        <div class="chairman-quote">
+          At AMKO, we take pride in the strength and capability of our team — a group of qualified, well-trained professionals dedicated to delivering exceptional results. From everyday operations to emergency turnarounds, we equip our workforce with the tools and training they need to perform at the highest standard. Our culture is built on honesty, reliability, and continuous improvement. These values have earned us the confidence of our clients — and we're committed to upholding that trust in everything we do.
+        </div>
+        
+        <div class="chairman-info">
+          <div class="chairman-avatar">MS</div>
+          <div class="chairman-details">
+            <h4>Mohamed Saber</h4>
+            <p>Chairman</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="clients" id="clients">
+    <div class="container">
+      <h2 class="section-title">Our Trusted Clients</h2>
+      <p class="section-subtitle">Since our founding in 2013, AMKO has completed hundreds of critical projects with precision and professionalism</p>
+      
+      <div class="clients-grid">
+        <div class="client-card">
+          <div class="client-logo">AE</div>
+          <div class="client-name">AL EZZ DEKHEILA STEEL</div>
+        </div>
+        
+        <div class="client-card">
+          <div class="client-logo">S</div>
+          <div class="client-name">Siemens</div>
+        </div>
+        
+        <div class="client-card">
+          <div class="client-logo">HC</div>
+          <div class="client-name">Helwan Cement</div>
+        </div>
+        
+        <div class="client-card">
+          <div class="client-logo">IC</div>
+          <div class="client-name">InterCement</div>
+        </div>
+        
+        <div class="client-card">
+          <div class="client-logo">H</div>
+          <div class="client-name">Heidelberg</div>
+        </div>
+        
+        <div class="client-card">
+          <div class="client-logo">TC</div>
+          <div class="client-name">Tourah Cement</div>
+        </div>
+        
+        <div class="client-card">
+          <div class="client-logo">AS</div>
+          <div class="client-name">ARCOSTEEL</div>
+        </div>
+        
+        <div class="client-card">
+          <div class="client-logo">SG</div>
+          <div class="client-name">SAINT-GOBAIN</div>
+        </div>
+        
+        <div class="client-card">
+          <div class="client-logo">ES</div>
+          <div class="client-name">Ezz Steel</div>
+        </div>
+        
+        <div class="client-card">
+          <div class="client-logo">SA</div>
+          <div class="client-name">SAVOLA</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-content">
+        <div class="contact-info">
+          <h2>Contact Us</h2>
+          
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div class="contact-details">
+              <h4>Address</h4>
+              <p>9 Bianki, Al-Bitash, Alexandria, Egypt</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div class="contact-details">
+              <h4>Phone</h4>
+              <p>+2034140139</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div class="contact-details">
+              <h4>Email</h4>
+              <p>info@amko-eng.com</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">🌐</div>
+            <div class="contact-details">
+              <h4>Website</h4>
+              <p>www.Amko-Eng.net</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form">
+          <h3 style="margin-bottom: 2rem; color: #64b5f6;">Get In Touch</h3>
+          
+          <form>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your Name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="Your Email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Subject" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-subtitle">Comprehensive engineering solutions tailored to your industry needs</p>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">⚙️</div>
+          <h3>Electro-Mechanical Maintenance</h3>
+          <p>Scheduled & emergency services, overhauls, inspections, and repair support for industrial equipment and systems.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">👥</div>
+          <h3>Technical Assistance & Manpower</h3>
+          <p>Skilled professionals and technical consultants to support diverse industrial needs across various sectors.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">📊</div>
+          <h3>Condition Monitoring</h3>
+          <p>Detailed equipment analysis to prevent failures and improve reliability through advanced monitoring systems.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">🔧</div>
+          <h3>Spare Parts Supply & Fabrication</h3>
+          <p>Sourcing and manufacturing of both original and alternative components for industrial equipment.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">🏗️</div>
+          <h3>Upgrades & Turnkey Projects</h3>
+          <p>Full-cycle execution of modernizations and system upgrades for industrial facilities.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">⚖️</div>
+          <h3>Alignment Services</h3>
+          <p>Precision alignment inspections and diagnostics for optimal equipment performance.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">🚰</div>
+          <h3>Piping System Installation</h3>
+          <p>Design and implementation of ground and underground networks for water, firefighting, and industrial systems.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">🎯</div>
+          <h3>Project Management</h3>
+          <p>Industrial project planning, workforce deployment, and material management for complex engineering projects.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">🔗</div>
+          <h3>Belt Vulcanizing & Maintenance</h3>
+          <p>Comprehensive repair services using both hot and cold methods for industrial conveyor systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>AMKO Engineering</h3>
+        <p>Leading provider of electro-mechanical engineering services since 2013. Committed to excellence and innovation in every project.</p>
+        <div style="margin-top: 1rem;">
+          <a href="#brochure" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Download Brochure</a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Services</h3>
+        <p><a href="#services">Electro-Mechanical Maintenance</a></p>
+        <p><a href="#services">Technical Assistance</a></p>
+        <p><a href="#services">Condition Monitoring</a></p>
+        <p><a href="#services">Project Management</a></p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <p><a href="#" style="color: #64b5f6;">Facebook: @AMKOEng</a></p>
+        <p><a href="#" style="color: #64b5f6;">LinkedIn: @AMKOEng</a></p>
+        <p><a href="#" style="color: #64b5f6;">Instagram: @AMKOEng</a></p>
+      </div>="#services">Project Management</a></p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <p>📍 9 Bianki, Al-Bitash, Alexandria, Egypt</p>
+        <p>📞 +2034140139</p>
+        <p>📧 info@amko-eng.com</p>
+        <p>🌐 www.Amko-Eng.net</p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 AMKO Engineering Services. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Service cards hover animation
+    document.querySelectorAll('.service-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-5px) scale(1.02)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+      });
+    });
+  </script>
+</body>
+</html>
